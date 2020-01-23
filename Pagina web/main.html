@@ -1,0 +1,259 @@
+<!DOCTYPE html >
+	
+	<!-- Cabecera -->
+	<head>
+        <title>Infotienda.es</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="UTF-8">
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<link type="text/css" href="css/style.css" rel="stylesheet" media="screen"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+
+    <!-- Contenido -->
+	<body style="color:rgb(0, 0, 0);" class="grey lighten-3" id="principal">
+         <!-- NAVBAR -->
+  <nav class="z-depth-0 grey lighten-4">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo" onclick="principal()">
+        <img src="../img/otros/logo.jpg" style="width: 180px;">
+      </a>
+      <ul id="nav-mobile" class="right">
+          <li class="logged-in">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-account">Cuenta</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="grey-text" id="logout">Logout</a>
+          </li>
+          <li class="logged-out">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+          </li>
+          <li class="logged-out">
+            <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Regístrate</a>
+          </li>
+          <li class="logged-in">
+            <a href="#" class="grey-text modal-trigger" id="Carrito" data-target="modal-carrito">Carrito</a>
+          </li>
+        </span>
+      </ul>
+    </div>
+  </nav>
+  <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Regístrate!</h4>
+      </div>
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email:</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Contraseña:</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="signup-direccion" required />
+          <label for="signup-direccion">Direccion:</label>
+        </div>
+        <div class="input-field">
+          <input type="text" id="codigo-postal" required />
+          <label for="codigo-postal">Código Postal:</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+      </form>
+    </div>
+  </div>
+  <!-- LOGIN MODAL -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">LOGIN</h4>
+      </div>
+      <form id="login-form">
+        <div class="input-field">
+          <input type="email" id="login-email" required />
+          <label for="login-email">Email:</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="login-password" required />
+          <label for="login-password">Contraseña:</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4><br />
+      <div class="account-details"></div>
+    </div>
+  </div>
+<!-- CARRITO MODAL -->
+<div id="modal-carrito" class="modal">
+  <div class="modal-content center-align">
+    <h4>Carrito:</h4><br />
+    <div class="carrito-details"></div>
+    <div id="precioTotal"></div>
+    <button onclick="compra()" class="btn deep-purple lighten-2 btn-block" role="button">Comprar</button>
+  </div>
+</div>
+  <div class="container-fluid">
+            <div class="row no-gutters" id="abajo">
+                <div class="col-2" id="menu-lateral">
+                    <div class="btn-group-vertical btn-block">
+                        <button onclick="ponerX('componentes')" class="btn btn-danger" role="button" id="boton-lateral">Componentes</button>
+                        <button onclick="ponerX('ordenadores')" class="btn green lighten-2" role="button" id="boton-lateral">Ordenadores</button>
+                        <button onclick="ponerX('smartphones')" class="btn light-green darken-2" role="button" id="boton-lateral">Smartphones</button>
+                        <button onclick="ponerX('audioFotoVideo')" class="btn lime darken-3" role="button" id="boton-lateral">Audio/Foto/Video</button>
+                        <button onclick="ponerX('perifericos')" class="btn red lighten-1" role="button" id="boton-lateral">Perifericos</button>
+                        <button onclick="ponerX('televisores')" class="btn cyan darken-4" role="button" id="boton-lateral">Televisores</button>
+                        <button onclick="ponerX('tablets')" class="btn light-blue lighten-2" role="button" id="boton-lateral">Tablets</button>
+                        <button onclick="ponerX('consolas')" class="btn blue darken-1" role="button" id="boton-lateral">Consolas</button>
+                        <button onclick="ponerX('impresoras')" class="btn indigo lighten-1" role="button" id="boton-lateral">Impresoras</button>
+                    </div>
+                </div>
+                <div class="col-10">
+                  <div class="slides portada">
+                    <img src="img/otros/slide1.jpg">
+                    <img src="img/otros/slide2.jpg">
+                    <img src="img/otros/slide3.jpg">
+                    <img src="img/otros/slide4.jpg">
+                </div>
+        
+                <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+                <script src="js/jquery.slides.min.js"></script>
+                <script>
+                    $(function(){
+                        $(".slides").slidesjs({
+                            play: {
+                                active: true,
+                                    // [boolean] Generate the play and stop buttons.
+                                    // You cannot use your own buttons. Sorry.
+                                effect: "slide",
+                                    // [string] Can be either "slide" or "fade".
+                                interval: 5000,
+                                    // [number] Time spent on each slide in milliseconds.
+                                auto: true,
+                                    // [boolean] Start playing the slideshow on load.
+                                swap: true,
+                                    // [boolean] show/hide stop and play buttons
+                                pauseOnHover: false,
+                                    // [boolean] pause a playing slideshow on hover
+                                restartDelay: 2500
+                                    // [number] restart delay on inactive slideshow
+                            }
+                        });
+                    });
+                  </script>
+                  <!-- Creando tarjetas 3D -->
+        <div class="contenedor_portada portada">
+          <div class="contenedor_tarjeta">
+              <a href="#">
+                  <figure>
+                      <img src="img/otros/float1.png">
+                      <figcaption class="trasera">
+                          <h2 class="titulo">PcCom Bronze Essential AMD Ryzen 3</h2>
+                          <hr>
+                          <br>
+                          <br>
+                          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, eum molestiae! Laboriosam commodi, accusantium qui fugiat neque, incidunt nesciunt itaque </p>
+                      </figcaption>
+                  </figure>
+              </a>
+          </div>
+           
+
+          <div class="contenedor_tarjeta">
+              <a href="#">
+                  <figure>
+                      <img src="img/otros/float2.png">
+                      <figcaption class="trasera">
+                          <h2 class="titulo">Corsair CC-9011042-WW
+                          </h2>
+                          <hr>
+                          <br>
+                          <br>
+                          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, eum molestiae! Laboriosam commodi, accusantium qui fugiat neque, incidunt nesciunt itaque </p>
+                      </figcaption>
+                  </figure>
+              </a>
+          </div>
+
+          <div class="contenedor_tarjeta">
+              <a href="#">
+                  <figure>
+                      <img src="img/productos/componentes/placa.jpg">
+                      <figcaption class="trasera">
+                          <h2 class="titulo">Intel Core I9-9900K</h2>
+                          <hr>
+                          <br>
+                          <br>
+                          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, eum molestiae! Laboriosam commodi, accusantium qui fugiat neque, incidunt nesciunt itaque </p>
+                      </figcaption>
+                  </figure>
+              </a>
+          </div>
+      </div>
+                  <div class="container-fluid" style="margin-top:40px;">
+                    <ul class="collapsible z-depht-0 productos" style="border: none;"></ul>
+                    <div class="compraya"></div>
+                  </div>
+                </div>
+            </div>
+      </div>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCTD-OdjkjTrkP6_GRI9s1C5vrmfg7w1lo",
+    authDomain: "sipc-e061a.firebaseapp.com",
+    databaseURL: "https://sipc-e061a.firebaseio.com",
+    projectId: "sipc-e061a",
+    storageBucket: "sipc-e061a.appspot.com",
+    messagingSenderId: "533247890416",
+    appId: "1:533247890416:web:c01c1a92c87f6d6f460335",
+    measurementId: "G-B975DEH7DG"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  //auth y firestone referencias
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/listas.js"></script>
+<script src="js/compra.js"></script>
+
+
+
+
+    </body>
